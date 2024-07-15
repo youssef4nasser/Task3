@@ -80,6 +80,7 @@ function SearchUser() {
                                     />
                                 </Form>
                             </Col>
+
                             <Col sm={12}>
                                 <div className="d-flex justify-content-end p-3">
                                     <Link to={'/add'}>
@@ -87,9 +88,10 @@ function SearchUser() {
                                     </Link>
                                 </div>
                             </Col>
-                            {filteredUsers.length > 0 ? filteredUsers.map((user) => {
+
+                            {filteredUsers.length > 0 ? filteredUsers.map((user, index) => {
                                 return <Col key={user.id} sm={12}>
-                                    <div className="d-flex justify-content-between align-items-center p-3">
+                                    <div className={`d-flex justify-content-between align-items-center p-3 ${index !== filteredUsers.length - 1 ? 'user-item' : ''}`}>
                                         <div className="info d-flex text-white">
                                             <img src={user.picture} className="rounded-circle" alt="user photo" width="75" />
                                             <div className="ms-3 d-flex flex-column justify-content-center ">
@@ -104,6 +106,7 @@ function SearchUser() {
                                     </div>
                                 </Col>
                             }) : <h2 className="text-center">No users</h2>}
+
                             <Col sm={12}>
                                 <div className="fs-5 text-white text-end position-absolute bottom-0 end-0 py-2 px-3">
                                     <Button variant="light" onClick={handlePrevPage} disabled={page === 0}><FaAngleLeft /></Button>
@@ -111,6 +114,7 @@ function SearchUser() {
                                     <Button variant="light" onClick={handleNextPage}><FaAngleRight /></Button>
                                 </div>
                             </Col>
+
                             <Col sm={12}>
                                 <div className="position-absolute bottom-0 start-0 w-25 text-center">
                                     {isError ? <Alert variant='danger'>

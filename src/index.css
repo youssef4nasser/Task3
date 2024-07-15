@@ -3,3 +3,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.user-item {
+    border-bottom: 1px solid #dee2e6;
+}
